@@ -20,9 +20,12 @@ DIRECTORY STRUCTURE
 -------------------
 
 ```
+api
 common
+    components/
     config/              contains shared configurations
     mail/                contains view files for e-mails
+    messages/
     models/              contains model classes used in both backend and frontend
     tests/               contains tests for common classes    
 console
@@ -57,6 +60,7 @@ Features
 -------------------
 - <a href="https://github.com/dektrium/yii2-rbac">https://github.com/dektrium/yii2-rbac</a>
 - <a href="https://github.com/dektrium/yii2-user">https://github.com/dektrium/yii2-user</a>
+- <a href="https://github.com/Insolita/yii2-migrik">https://github.com/Insolita/yii2-migrik</a>
 - <a href="https://github.com/jlorente/yii2-widget-remainingcharacters">https://github.com/jlorente/yii2-widget-remainingcharacters</a>
 
 Installation
