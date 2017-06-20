@@ -48,7 +48,7 @@ class Products extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'product_name' => Yii::t('app', 'Product Name'),
             'description' => Yii::t('app', 'Description'),
-            'weight' => Yii::t('app', 'Weight'),
+            'weight' => Yii::t('app', 'Weight (Grams)'),
             'sell_price' => Yii::t('app', 'Sell Price'),
             'stock' => Yii::t('app', 'Stock'),
             'status' => Yii::t('app', 'Status'),
