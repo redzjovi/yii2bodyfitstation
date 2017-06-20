@@ -35,9 +35,7 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
+    $menuItems = Yii::$app->Menus->getMenuItems('backend_top');
     if (! Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin) {
         $menuItems[] = ['label' => Yii::t('user', 'Manage users'), 'url' => ['/user/admin']];
     }
