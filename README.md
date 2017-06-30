@@ -58,12 +58,15 @@ environments/            contains environment-based overrides
 ```
 Features
 -------------------
-- <a href="https://github.com/Insolita/yii2-migrik">https://github.com/Insolita/yii2-migrik</a>
-- <a href="https://github.com/jlorente/yii2-widget-remainingcharacters">https://github.com/jlorente/yii2-widget-remainingcharacters</a>
+- [yii2-migrik](https://github.com/Insolita/yii2-migrik)
+- [yii2-usuario](https://github.com/2amigos/yii2-usuario)
+- [yii2-widget-remainingcharacters](https://github.com/jlorente/yii2-widget-remainingcharacters)
 
 Installation
 -------------------
 - Run command, composer update
 - Run command, php init, then choose 0
 - Update common/config/main-local.php, set db
+- Run command, php yii migrate 4 --migrationNamespaces=Da\\User\\Migration 
+- Run command, php yii migrate 1 --migrationPath=@yii/rbac/migrations
 - Run command, php yii migrate/up 2

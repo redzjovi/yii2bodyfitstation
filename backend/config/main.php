@@ -8,6 +8,13 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'modules' => [
+        'user' => [
+            'administrators' => ['superadmin'],
+            'class' => Da\User\Module::class,
+            'enableFlashMessages' => false,
+        ],
+    ],
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
