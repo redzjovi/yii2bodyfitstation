@@ -15,7 +15,7 @@ class Menus extends Component
                 'label' => 'Shop',
                 'visible' => Yii::$app->user->can('backend/shop'),
                 'items' => [
-                    ['label' => 'Products', 'url' => Url::to('products'), 'visible' => Yii::$app->user->can('backend/products')],
+                    ['label' => 'Products', 'url' => ['/products'], 'visible' => Yii::$app->user->can('backend/products')],
                 ],
             ],
         ];

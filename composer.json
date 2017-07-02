@@ -20,8 +20,9 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "jlorente/yii2-widget-remainingcharacters": "*",
         "insolita/yii2-migration-generator": "~2.3",
-        "kartik-v/yii2-widgets": "^3.4",
-        "2amigos/yii2-usuario": "~1.0"
+        "2amigos/yii2-usuario": "~1.0",
+        "symfony/var-dumper": "^3.3",
+        "kartik-v/yii2-widgets": "^3.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

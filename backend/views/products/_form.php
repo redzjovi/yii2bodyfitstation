@@ -1,8 +1,11 @@
 <?php
 
+use kartik\widgets\FileInput;
 use kartik\widgets\SwitchInput;
 use jlorente\remainingcharacters\RemainingCharacters;
 use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 use yii\widgets\MaskedInput;
 
@@ -13,7 +16,10 @@ use yii\widgets\MaskedInput;
 
 <div class="products-form">
 
-    <?php $form = ActiveForm::begin(['enableClientValidation' => false]); ?>
+    <?php $form = ActiveForm::begin([
+        'enableClientValidation' => true,
+        'options' => ['enctype' => 'multipart/form-data', 'id' => 'products_form'],
+    ]); ?>
 
     <?= $form->field($model, 'product_name')->widget(
         RemainingCharacters::classname(),
@@ -23,6 +29,53 @@ use yii\widgets\MaskedInput;
             'options' => [
                 'class' => 'form-control',
                 'maxlength' => true,
+            ],
+        ]
+    ); ?>
+
+    <?php $initialPreview = $initialPreviewConfig = [];
+    if (! $model->isNewRecord) {
+        foreach ($productImagesModel as $row) {
+            $initialPreview[] = Html::img(
+                Url::to('@web'. '/'. $row->path),
+                [
+                    'alt' => $row->name . '.' .$row->type,
+                    'class' => 'file-preview-image',
+                    'title' => $row->name . '.' .$row->type,
+                    'style' => 'height: inherit; width: inherit;',
+                ]
+            )
+            .Html::activeHiddenInput(
+                $productsForm,
+                'product_images[]',
+                ['value' => $row->path]
+            );
+
+            $initialPreviewConfig[] = [
+                'caption' => $row->name . '.' .$row->type,
+                'extra' => ['type' => 'temp'],
+                'key' => $row->id,
+                'size' => $row->size,
+                'url' => Url::to('@web/products/image-delete'),
+            ];
+        }
+    } ?>
+
+    <?= $form->field($productsForm, 'product_images_array[]')->widget(
+        FileInput::classname(),
+        [
+            'options' => [
+                'accept' => 'image/*',
+                'id' => 'product_images',
+                'multiple' => true,
+            ],
+            'pluginOptions' => [
+                'initialPreview' => $initialPreview,
+                'initialPreviewConfig' => $initialPreviewConfig,
+                'maxFileCount' => 5,
+                'overwriteInitial' => false,
+                'uploadAsync' => true,
+                'uploadUrl' => Url::to('@web/products/image-upload'),
             ],
         ]
     ); ?>
@@ -42,40 +95,63 @@ use yii\widgets\MaskedInput;
 
     <div class="row">
         <div class="col-md-3">
-            <?= $form->field($model, 'weight')->widget(MaskedInput::classname(), ['clientOptions' => [
-                'alias' => 'decimal',
-                'autoGroup' => true,
-                'groupSeparator' => ',',
-                'removeMaskOnSubmit' => true,
-            ]]);?>
+            <?php if (empty($model->weight)) {
+                $model->weight = 1000;
+            } ?>
+            <?= $form->field($model, 'weight')->widget(
+                MaskedInput::classname(),
+                [
+                    'clientOptions' => [
+                        'alias' => 'decimal',
+                        'autoGroup' => true,
+                        'groupSeparator' => ',',
+                        'removeMaskOnSubmit' => true,
+                    ],
+                ]
+            ); ?>
         </div>
 
         <div class="col-md-3">
-            <?= $form->field($model, 'sell_price')->widget(MaskedInput::classname(), ['clientOptions' => [
-                'alias' => 'decimal',
-                'autoGroup' => true,
-                'groupSeparator' => ',',
-                'removeMaskOnSubmit' => true,
-            ]]);?>
+            <?= $form->field($model, 'sell_price')->widget(
+                MaskedInput::classname(),
+                [
+                    'clientOptions' => [
+                        'alias' => 'decimal',
+                        'autoGroup' => true,
+                        'groupSeparator' => ',',
+                        'removeMaskOnSubmit' => true,
+                    ],
+                ]
+            ); ?>
         </div>
 
         <div class="col-md-3">
-            <?= $form->field($model, 'stock')->widget(MaskedInput::classname(), ['clientOptions' => [
-                'alias' => 'decimal',
-                'autoGroup' => true,
-                'groupSeparator' => ',',
-                'removeMaskOnSubmit' => true,
-            ]]);?>
+            <?= $form->field($model, 'stock')->widget(
+                MaskedInput::classname(),
+                [
+                    'clientOptions' => [
+                        'alias' => 'decimal',
+                        'autoGroup' => true,
+                        'groupSeparator' => ',',
+                        'removeMaskOnSubmit' => true,
+                    ],
+                ]
+            ); ?>
         </div>
 
         <div class="col-md-3">
             <?php if (empty($model->status)) {
                 $model->status = true;
             } ?>
-            <?= $form->field($model, 'status')->widget(SwitchInput::classname(), ['pluginOptions' => [
-                'offText' => Yii::t('app', 'Inactive'),
-                'onText' => Yii::t('app', 'Active'),
-            ]]);?>
+            <?= $form->field($model, 'status')->widget(
+                SwitchInput::classname(),
+                [
+                    'pluginOptions' => [
+                        'offText' => Yii::t('app', 'Inactive'),
+                        'onText' => Yii::t('app', 'Active'),
+                    ],
+                ]
+            ); ?>
         </div>
     </div>
 
@@ -86,3 +162,13 @@ use yii\widgets\MaskedInput;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<?php $js = <<< JS
+$('#product_images').on('filebatchselected', function(event, files) {
+    $(this).fileinput('upload');
+});
+JS;
+$this->registerJs(
+    $js,
+    View::POS_READY
+); ?>
