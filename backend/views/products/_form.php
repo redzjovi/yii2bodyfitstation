@@ -74,6 +74,8 @@ use yii\widgets\MaskedInput;
                 'initialPreviewConfig' => $initialPreviewConfig,
                 'maxFileCount' => 5,
                 'overwriteInitial' => false,
+                'showRemove' => false,
+                'showUpload' => false,
                 'uploadAsync' => true,
                 'uploadUrl' => Url::to('@web/products/image-upload'),
             ],
