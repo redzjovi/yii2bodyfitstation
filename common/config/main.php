@@ -1,6 +1,9 @@
 <?php
 return [
     'bootstrap' => ['assetsAutoCompress'],
+    'modules' => [
+        'gridview' => ['class' => '\kartik\grid\Module'],
+    ],
     'language' => 'en',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -23,6 +26,11 @@ return [
                     'basePath' => '@common/messages',
                     'class' => 'yii\i18n\PhpMessageSource',
                     'fileMap' => ['app' => 'app.php'],
+                ],
+                'kvgrid' => [
+                    'basePath' => '@vendor/kartik-v/yii2-grid/messages',
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'forceTranslation' => true,
                 ],
             ],
         ],

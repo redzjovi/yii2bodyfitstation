@@ -1,5 +1,6 @@
 <?php
 
+use kartik\widgets\SwitchInput;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -28,13 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            // 'id',
             'product_name',
             'description:ntext',
-            'weight',
-            'sell_price',
-            'stock',
-            'status',
+            'weight:decimal',
+            'sell_price:decimal',
+            'stock:decimal',
+            [
+                'attribute' => 'status',
+                'value' => function ($column) {
+                    return ($column->status == 0 ? Yii::t('app', 'Inactive') : Yii::t('app', 'Active'));
+                },
+            ],
         ],
     ]) ?>
 

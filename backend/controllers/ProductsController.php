@@ -86,7 +86,7 @@ class ProductsController extends Controller
                 $productsForm->product_id = $model->getPrimaryKey();
                 $productsForm->upload();
 
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['/products']);
             }
         }
 
@@ -124,7 +124,7 @@ class ProductsController extends Controller
 
                 $productsForm->upload();
 
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['/products']);
             }
         }
 

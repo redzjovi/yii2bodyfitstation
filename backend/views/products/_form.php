@@ -142,7 +142,7 @@ use yii\widgets\MaskedInput;
         </div>
 
         <div class="col-md-3">
-            <?php if (empty($model->status)) {
+            <?php if ($model->isNewRecord) {
                 $model->status = true;
             } ?>
             <?= $form->field($model, 'status')->widget(
