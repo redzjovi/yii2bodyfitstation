@@ -22,7 +22,8 @@
         "insolita/yii2-migration-generator": "~2.3",
         "2amigos/yii2-usuario": "~1.0",
         "symfony/var-dumper": "^3.3",
-        "kartik-v/yii2-widgets": "^3.4"
+        "kartik-v/yii2-widgets": "^3.4",
+        "skeeks/yii2-assets-auto-compress": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
