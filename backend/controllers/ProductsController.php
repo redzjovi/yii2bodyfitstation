@@ -42,6 +42,8 @@ class ProductsController extends Controller
      */
     public function actionIndex()
     {
+        Url::remember('', 'backend_products');
+
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -86,7 +88,9 @@ class ProductsController extends Controller
                 $productsForm->product_id = $model->getPrimaryKey();
                 $productsForm->upload();
 
-                return $this->redirect(['/products']);
+                return $this->redirect(
+                    Url::previous('backend_products') ? Url::previous('backend_products') : ['/products']
+                );
             }
         }
 
@@ -124,7 +128,9 @@ class ProductsController extends Controller
 
                 $productsForm->upload();
 
-                return $this->redirect(['/products']);
+                return $this->redirect(
+                    Url::previous('backend_products') ? Url::previous('backend_products') : ['/products']
+                );
             }
         }
 
@@ -147,7 +153,9 @@ class ProductsController extends Controller
         FileHelper::removeDirectory('uploads/products/'.$id);
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(
+            Url::previous('backend_products') ? Url::previous('backend_products') : ['index']
+        );
     }
 
     /**
