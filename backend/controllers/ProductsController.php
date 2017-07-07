@@ -143,6 +143,8 @@ class ProductsController extends Controller
      */
     public function actionDelete($id)
     {
+        ProductImages::deleteAll(['product_id' => $id]);
+        FileHelper::removeDirectory('uploads/products/'.$id);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
