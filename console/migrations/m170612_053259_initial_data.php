@@ -37,6 +37,10 @@ class m170612_053259_initial_data extends Migration
         $auth->addChild($superadmin, $permission);
         $auth->addChild($admin, $permission);
 
+        $permission = $auth->createPermission('backend/wp-options');
+        $auth->add($permission);
+        $auth->addChild($superadmin, $permission);
+
         $user = User::findOne(['username' => 'superadmin']);
         $auth->assign($superadmin, $user->id);
         $user = User::findOne(['username' => 'admin']);

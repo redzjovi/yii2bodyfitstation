@@ -1,4 +1,4 @@
-Yii 2 Advanced Project Template
+3Yii 2 Advanced Project Template
 ===============================
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
@@ -71,4 +71,4 @@ Installation
 - Update common/config/main-local.php, set db
 - Run command, php yii migrate/up 4 --migrationPath=@vendor/2amigos/yii2-usuario/migrations
 - Run command, php yii migrate/up 1 --migrationPath=@yii/rbac/migrations
-- Run command, php yii migrate/up 3
+- Run command, php yii migrate/up 5

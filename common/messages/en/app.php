@@ -1,10 +1,14 @@
 <?php
 return [
     'Active' => 'Active',
+    'Autoload' => 'Autoload',
     'Description' => 'Description',
     'Inactive' => 'Inactive',
     'Mime' => 'Mime',
     'Name' => 'Name',
+    'No' => 'No',
+    'Option Name' => 'Option Name',
+    'Option Value' => 'Option Value',
     'Path' => 'Path',
     'Position' => 'Position',
     'Product ID' => 'Product ID',
@@ -14,5 +18,6 @@ return [
     'Stock' => 'Stock',
     'Type' => 'Type',
     'Weight (Grams)' => 'Weight (Grams)',
+    'Yes' => 'Yes',
     '{n} characters remaining' => '{n} characters remaining',
 ];
