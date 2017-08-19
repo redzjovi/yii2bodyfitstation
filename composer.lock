@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3409f33b011ff0e7bbd165d42a0fae71",
+    "content-hash": "d580c351fada123e800433298d39660e",
     "packages": [
         {
             "name": "2amigos/yii2-selectize-widget",
@@ -2673,6 +2673,54 @@
                 "yii"
             ],
             "time": "2017-07-14T16:55:12+00:00"
+        },
+        {
+            "name": "slatiusa/yii2-nestable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ASlatius/yii2-nestable.git",
+                "reference": "7e40e678013b2fe6c96de99c29a1820fd92f0b8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ASlatius/yii2-nestable/zipball/7e40e678013b2fe6c96de99c29a1820fd92f0b8f",
+                "reference": "7e40e678013b2fe6c96de99c29a1820fd92f0b8f",
+                "shasum": ""
+            },
+            "require": {
+                "creocoder/yii2-nested-sets": "*",
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "slatiusa\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Arno Slatius",
+                    "email": "a.slatius@gmail.com"
+                }
+            ],
+            "description": "Yii 2.0 implementation of nested set behavior using jquery.nestable plugin.",
+            "homepage": "https://github.com/Hommer101/yii2-nestable",
+            "keywords": [
+                "Behavior",
+                "extension",
+                "jquery",
+                "nestable",
+                "nested set",
+                "sortable",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-10-08 12:21:47"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5635,7 +5683,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kartik-v/yii2-grid": 20
+        "kartik-v/yii2-grid": 20,
+        "slatiusa/yii2-nestable": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

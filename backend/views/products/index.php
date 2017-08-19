@@ -23,8 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'condensed' => true,
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'headerRowOptions'=>['class'=>'kartik-sheet-style'],
-        'hover' => true,
         'panel' => ['footer' => false, 'type' => GridView::TYPE_DEFAULT],
         'pjax' => true,
         'resizableColumns' => true,
