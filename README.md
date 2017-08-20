@@ -58,7 +58,7 @@ environments/            contains environment-based overrides
 ```
 Features
 -------------------
-- [yii2-assets-auto-compress]https://github.com/skeeks-semenov/yii2-assets-auto-compress
+- [yii2-assets-auto-compress](https://github.com/skeeks-semenov/yii2-assets-auto-compress)
 - [yii2-migrik](https://github.com/Insolita/yii2-migrik)
 - [yii2-nestable](https://github.com/ASlatius/yii2-nestable)
 - [yii2-nested-sets](https://github.com/creocoder/yii2-nested-sets)
