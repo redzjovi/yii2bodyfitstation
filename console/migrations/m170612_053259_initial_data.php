@@ -27,6 +27,14 @@ class m170612_053259_initial_data extends Migration
         $admin = $auth->createRole('admin');
         $auth->add($admin);
 
+        $permission = $auth->createPermission('backend/cms');
+        $auth->add($permission);
+        $auth->addChild($superadmin, $permission);
+
+        $permission = $auth->createPermission('backend/menu');
+        $auth->add($permission);
+        $auth->addChild($superadmin, $permission);
+
         $permission = $auth->createPermission('backend/products');
         $auth->add($permission);
         $auth->addChild($superadmin, $permission);
@@ -36,6 +44,15 @@ class m170612_053259_initial_data extends Migration
         $auth->add($permission);
         $auth->addChild($superadmin, $permission);
         $auth->addChild($admin, $permission);
+
+        $permission = $auth->createPermission('backend/top');
+        $auth->add($permission);
+        $auth->addChild($superadmin, $permission);
+        $auth->addChild($admin, $permission);
+
+        $permission = $auth->createPermission('backend/user');
+        $auth->add($permission);
+        $auth->addChild($superadmin, $permission);
 
         $permission = $auth->createPermission('backend/wp-options');
         $auth->add($permission);

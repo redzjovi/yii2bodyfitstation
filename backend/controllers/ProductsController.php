@@ -27,6 +27,12 @@ class ProductsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    ['actions' => ['create', 'delete', 'image-delete', 'image-upload', 'index', 'update', 'view'], 'allow' => true, 'roles' => ['backend/products']],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
